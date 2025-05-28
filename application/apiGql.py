@@ -1,7 +1,6 @@
 import graphene
 from graphene_sqlalchemy import SQLAlchemyObjectType
 from .models import User, Post
-import graphene
     
 class UserType(SQLAlchemyObjectType):
     class Meta:
