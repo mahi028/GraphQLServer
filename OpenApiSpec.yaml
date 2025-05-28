@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: My GraphQL API
+  version: 1.0.0
+  description: GraphQL endpoint documentation for local development
+
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+
+paths:
+  /graphql:
+    post:
+      summary: GraphQL POST endpoint
+      description: >
+        Send a GraphQL query to the server using POST. The request body must contain
+        a `query` field. Note that this is not a tradition REST API endpoint but a GraphQL Qurey endpoint and follows GraphQL Schema.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The GraphQL query string
+                  example: "{ allUsers { username posts { title createdAt } } }"
+      responses:
+        '200':
+          description: Successful GraphQL response
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The response data from the GraphQL server
+                example:
+                  data:
+                    postsByUser:
+                      - title: "GraphQL in Flask"
