@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_graphql import GraphQLView
 from flask_cors import CORS
 from application.dummy import index_blueprint
-from .apiGql import schema
+from .graphql import schema
 from .models import db
 
 def create_app():
